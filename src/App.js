@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import searchHandler from './components/SearchHandler';
 
 function App() {
   return (
-    <div className="App">
-      Hello
-    </div>
+    <>
+      Hello!
+      {searchHandler}
+    </>  
   );
 }
 
