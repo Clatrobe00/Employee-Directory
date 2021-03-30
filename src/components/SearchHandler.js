@@ -1,10 +1,11 @@
 import API from './utils/API';
 
 const SearchHandler = async () => {
-    const res = await API.search();
+    const res = await API();
+    console.log(res.data.results);
     return (
         <div>
-            {res}
+            {res.data.results}
         </div>
     )
 }

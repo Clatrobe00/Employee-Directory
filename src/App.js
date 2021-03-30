@@ -1,11 +1,11 @@
 import './App.css';
-import searchHandler from './components/SearchHandler';
+import SearchHandler from './components/SearchHandler';
 
 function App() {
   return (
     <>
       Hello!
-      {searchHandler}
+      <SearchHandler />
     </>  
   );
 }
