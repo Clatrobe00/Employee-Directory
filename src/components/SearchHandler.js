@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from './utils/API';
+import EmployeeTable from './EmployeeTable';
 
 class SearchHandler extends Component {
     state = {
@@ -16,10 +17,11 @@ class SearchHandler extends Component {
 
     render() {
         return (
-          <ul>
-              Hello
-            { this.state.employees.map(employee => <li>Name: {employee.name.first} Age: {employee.dob.age}</li>)}
-          </ul>
+          <EmployeeTable />
+          // <ul>
+          //     Hello
+          //   { this.state.employees.map(employee => <li>Name: {employee.name.first} Age: {employee.dob.age}</li>)}
+          // </ul>
         )
       }
 }
