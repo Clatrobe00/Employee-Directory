@@ -10,6 +10,7 @@ class SearchHandler extends Component {
         API().then(res => {
             const employees = res.data.results;
             this.setState({ employees })
+            console.log(this.state.employees)
         })
     }
 
@@ -17,7 +18,7 @@ class SearchHandler extends Component {
         return (
           <ul>
               Hello
-            { this.state.employees.map(employee => <li>{employee.name.first}</li>)}
+            { this.state.employees.map(employee => <li>Name: {employee.name.first} Age: {employee.dob.age}</li>)}
           </ul>
         )
       }
