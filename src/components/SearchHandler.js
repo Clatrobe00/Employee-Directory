@@ -9,11 +9,20 @@ class SearchHandler extends Component {
     }
 
     componentDidMount () {
-        API().then(res => {
-            const employees = res.data.results;
-            this.setState({ employees })
-        })
+      this.getEmployees()
     }
+
+    getEmployees () {
+      API().then(res => {
+        const employees = res.data.results;
+        this.setState({ employees })
+      })
+      .catch(err => console.log(err));
+    }
+
+    // componentDidUpdate () {
+    //   this.getEmployees()
+    // }
 
     render() {
         return (
