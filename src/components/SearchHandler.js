@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Container from 'react-bootstrap/Container';
 import API from './utils/API';
 import EmployeeTable from './EmployeeTable';
 import DirectoryContext from './utils/DirectoryContext';
+import SortButton from './SortButton';
 
 class SearchHandler extends Component {
     state = {
@@ -26,10 +28,14 @@ class SearchHandler extends Component {
 
     render() {
         return (
-        <DirectoryContext.Provider value={this.state.employees}>
-          <EmployeeTable />
-        </DirectoryContext.Provider>
-
+          <Container>
+            <DirectoryContext.Provider value={this.state.employees}>
+              <EmployeeTable />
+            </DirectoryContext.Provider>
+            <SortButton>
+              Sort
+            </SortButton>
+          </Container>
 
           // <ul>
           //     Hello
