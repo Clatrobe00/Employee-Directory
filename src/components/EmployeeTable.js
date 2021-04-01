@@ -7,7 +7,7 @@ const EmployeeTable = () => {
     const employeeData = useContext(DirectoryContext)
 
     const mapEmployees = (employeeData) => {
-        employeeData.map(employee => {
+        const emTab = employeeData.map(employee => {
             console.log('mapping: ', employee);
             return (
                 <tr>
@@ -18,34 +18,34 @@ const EmployeeTable = () => {
                 <td>{employee.email}</td>
                 </tr>
             )
+
         })
+        return emTab;
     }
 
-    console.log(employeeData);
-    console.log(employeeData[0]);
-        return (
-            <Table striped bordered hover>
-                <thead>
+    return (
+        <Table striped bordered hover>
+            <thead>
+                <tr>
+                <th>Title</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Cell</th>
+                <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {(employeeData[0]) ? (mapEmployees(employeeData)) : (                    
                     <tr>
-                    <th>Title</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Cell</th>
-                    <th>Email</th>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
                     </tr>
-                </thead>
-                <tbody>
-                    {(employeeData[0]) ? (mapEmployees(employeeData)) : (                    
-                        <tr>
-                        <td>No Data</td>
-                        <td>No Data</td>
-                        <td>No Data</td>
-                        <td>No Data</td>
-                        <td>No Data</td>
-                        </tr>
-                    )}          
-                </tbody>
-            </Table>
+                )}          
+            </tbody>
+        </Table>
     )
 }    
 
