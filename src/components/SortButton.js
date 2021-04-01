@@ -1,8 +1,8 @@
 import Button from 'react-bootstrap/Button';
 
-const SortButton = (children) => (
+const SortButton = (props) => (
     <Button>
-        {children}
+        {props.children}
     </Button>
 )
 
