@@ -22,6 +22,15 @@ class SearchHandler extends Component {
       .catch(err => console.log(err));
     }
 
+    sortEmployees (e) {
+      console.log('clicked!')
+      const sort = this.state.employees.sort((a,b) => {
+        return a.age - b.age
+      })
+      this.setState({ sort });
+      console.log(sort);
+    }
+
     // componentDidUpdate () {
     //   this.getEmployees()
     // }
@@ -32,7 +41,7 @@ class SearchHandler extends Component {
             <DirectoryContext.Provider value={this.state.employees}>
               <EmployeeTable />
             </DirectoryContext.Provider>
-            <SortButton children='sort' />
+            <SortButton children='sort' onClick={this.sortEmployees}/>
           </Container>
 
           // <ul>
