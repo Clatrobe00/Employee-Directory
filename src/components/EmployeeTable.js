@@ -10,7 +10,7 @@ const EmployeeTable = () => {
         const emTab = employeeData.map(employee => {
             console.log('mapping: ', employee);
             return (
-                <tr>
+                <tr key={employeeData.indexOf(employee)}>
                 <td>{employee.name.title}</td>
                 <td>{employee.name.first}</td>
                 <td>{employee.name.last}</td>
