@@ -16,6 +16,7 @@ const EmployeeTable = () => {
                 <td>{employee.name.last}</td>
                 <td>{employee.cell}</td>
                 <td>{employee.email}</td>
+                <td>{employee.dob.age}</td>
                 </tr>
             )
 
@@ -32,11 +33,13 @@ const EmployeeTable = () => {
                 <th>Last Name</th>
                 <th>Cell</th>
                 <th>Email</th>
+                <th>Age</th>
                 </tr>
             </thead>
             <tbody>
                 {(employeeData[0]) ? (mapEmployees(employeeData)) : (                    
                     <tr>
+                    <td>No Data</td>
                     <td>No Data</td>
                     <td>No Data</td>
                     <td>No Data</td>
