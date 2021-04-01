@@ -40,8 +40,8 @@ class SearchHandler extends Component {
           <Container>
             <DirectoryContext.Provider value={this.state.employees}>
               <EmployeeTable />
+              <SortButton children='sort' onClick={this.sortEmployees}/>
             </DirectoryContext.Provider>
-            <SortButton children='sort' onClick={this.sortEmployees}/>
           </Container>
 
           // <ul>

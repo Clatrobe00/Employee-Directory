@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 
 const SortButton = (props) => (
-    <Button>
+    <Button onClick={props.onClick}>
         {props.children}
     </Button>
 )
