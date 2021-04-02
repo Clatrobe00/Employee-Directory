@@ -4,10 +4,12 @@ import API from './utils/API';
 import EmployeeTable from './EmployeeTable';
 import DirectoryContext from './utils/DirectoryContext';
 import SortButton from './SortButton';
+import SortContext from './utils/SortContext';
 
 class SearchHandler extends Component {
     state = {
         employees: [],
+        sort: 'add'
     }
 
     componentDidMount () {
@@ -22,15 +24,6 @@ class SearchHandler extends Component {
       .catch(err => console.log(err));
     }
 
-    sortEmployees (e) {
-      console.log('clicked!')
-      const sort = this.state.employees.sort((a,b) => {
-        return a.age - b.age
-      })
-      this.setState({ sort });
-      console.log(sort);
-    }
-
     // componentDidUpdate () {
     //   this.getEmployees()
     // }
@@ -39,8 +32,10 @@ class SearchHandler extends Component {
         return (
           <Container>
             <DirectoryContext.Provider value={this.state.employees}>
-              <EmployeeTable />
-              <SortButton children='sort' onClick={this.sortEmployees}/>
+              <SortContext.Provider value={this.state.sort}>
+                <EmployeeTable />
+                <SortButton/>
+              </SortContext.Provider>
             </DirectoryContext.Provider>
           </Container>
 

@@ -7,6 +7,10 @@ const EmployeeTable = () => {
     const employeeData = useContext(DirectoryContext)
 
     const mapEmployees = (employeeData) => {
+        const sortedEm = employeeData.sort((a,b) => {
+            return a.dob.age - b.dob.age
+        })
+        console.log('sorted employees is', sortedEm); 
         const emTab = employeeData.map(employee => {
             console.log('mapping: ', employee);
             return (
