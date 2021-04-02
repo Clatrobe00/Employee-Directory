@@ -11,7 +11,7 @@ class SearchHandler extends Component {
     super()
     this.state = {
       employees: [],
-      sortBy: 'age'
+      sortBy: 'cell'
     }
   }
 
@@ -46,7 +46,7 @@ class SearchHandler extends Component {
               </SortContext.Provider>
             </DirectoryContext.Provider>
             <button value='age' onClick={(e) => this.orderHandler(e)}>Age</button>
-            <button value='cell' onClick={(e) => this.orderHandler(e)}>Cell</button>
+            <button value='registered' onClick={(e) => this.orderHandler(e)}>Registered</button>
           </Container>
 
           // <ul>

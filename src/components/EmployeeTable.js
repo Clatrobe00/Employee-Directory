@@ -17,11 +17,11 @@ const EmployeeTable = () => {
                 })
                 console.log('age sorted Emps are', sortedEm)
                 break;
-            case 'cell':
+            case 'registered':
                 sortedEm= employeeData.sort((a,b) => {
-                    return a.cell - b.cell
+                    return a.registered.age - b.registered.age
                 })
-                console.log('cell sorted Emps are', sortedEm)    
+                console.log('registered sorted Emps are', sortedEm)    
                 break
             default:
                 console.log('broken')
@@ -37,6 +37,7 @@ const EmployeeTable = () => {
                 <td>{employee.cell}</td>
                 <td>{employee.email}</td>
                 <td>{employee.dob.age}</td>
+                <td>{employee.registered.date}</td>
                 </tr>
             )
 
@@ -54,6 +55,7 @@ const EmployeeTable = () => {
                 <th>Cell</th>
                 <th>Email</th>
                 <th>Age</th>
+                <th>Registered</th>
                 </tr>
             </thead>
             <tbody>
