@@ -1,15 +1,33 @@
 import React, { useContext } from 'react';
 import { Table } from 'react-bootstrap'
 import DirectoryContext from './utils/DirectoryContext';
+import SortContext from './utils/SortContext'
 
 const EmployeeTable = () => {
 
     const employeeData = useContext(DirectoryContext)
-
-    const mapEmployees = (employeeData) => {
-        const sortedEm = employeeData.sort((a,b) => {
-            return a.dob.age - b.dob.age
-        })
+    const sortMethod = useContext(SortContext)
+    console.log('sort method is', sortMethod)
+    let sortedEm;
+    const mapEmployees = () => {
+        switch (sortMethod) {
+            case 'dob.age':
+                sortedEm= employeeData.sort((a,b) => {
+                    return a.dob.age - b.dob.age
+                })
+                console.log(sortedEm)
+                break;
+            case 'gender':
+                sortedEm= employeeData.sort((a,b) => {
+                    return a.gender - b.gender
+                })
+                console.log(sortedEm)    
+                break
+            default:
+                console.log('broken')
+                break;
+        }
+        
         console.log('sorted employees is', sortedEm); 
         const emTab = employeeData.map(employee => {
             console.log('mapping: ', employee);

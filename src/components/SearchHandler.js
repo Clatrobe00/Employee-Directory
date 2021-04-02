@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import API from './utils/API';
 import EmployeeTable from './EmployeeTable';
 import DirectoryContext from './utils/DirectoryContext';
-import SortButton from './SortButton';
+// import SortButton from './SortButton';
 import SortContext from './utils/SortContext';
 
 class SearchHandler extends Component {
-    state = {
-        employees: [],
-        sort: 'add'
+  constructor(props) {
+    super()
+    this.state = {
+      employees: [],
+      sortBy: 'age'
     }
+  }
+
 
     componentDidMount () {
       this.getEmployees()
@@ -18,10 +22,14 @@ class SearchHandler extends Component {
 
     getEmployees () {
       API().then(res => {
-        const employees = res.data.results;
-        this.setState({ employees })
+        const results = res.data.results;
+        this.setState({ employees: results })
       })
       .catch(err => console.log(err));
+    }
+
+    orderHandler (e) {
+      this.setState({ sortBy: e.target.value })
     }
 
     // componentDidUpdate () {
@@ -32,11 +40,13 @@ class SearchHandler extends Component {
         return (
           <Container>
             <DirectoryContext.Provider value={this.state.employees}>
-              <SortContext.Provider value={this.state.sort}>
+              <SortContext.Provider value={this.state.sortBy}>
+                <h1>{this.state.sortBy}</h1>
                 <EmployeeTable />
-                <SortButton/>
               </SortContext.Provider>
             </DirectoryContext.Provider>
+            <button value='dob.age' onClick={(e) => this.orderHandler(e)}>Age</button>
+            <button value='gender' onClick={(e) => this.orderHandler(e)}>Gender</button>
           </Container>
 
           // <ul>
