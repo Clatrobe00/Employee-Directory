@@ -11,26 +11,24 @@ const EmployeeTable = () => {
     let sortedEm;
     const mapEmployees = () => {
         switch (sortMethod) {
-            case 'dob.age':
+            case 'age':
                 sortedEm= employeeData.sort((a,b) => {
                     return a.dob.age - b.dob.age
                 })
-                console.log(sortedEm)
+                console.log('age sorted Emps are', sortedEm)
                 break;
-            case 'gender':
+            case 'cell':
                 sortedEm= employeeData.sort((a,b) => {
-                    return a.gender - b.gender
+                    return a.cell - b.cell
                 })
-                console.log(sortedEm)    
+                console.log('cell sorted Emps are', sortedEm)    
                 break
             default:
                 console.log('broken')
                 break;
         }
         
-        console.log('sorted employees is', sortedEm); 
         const emTab = employeeData.map(employee => {
-            console.log('mapping: ', employee);
             return (
                 <tr key={employeeData.indexOf(employee)}>
                 <td>{employee.name.title}</td>

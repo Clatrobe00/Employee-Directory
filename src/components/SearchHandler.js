@@ -45,8 +45,8 @@ class SearchHandler extends Component {
                 <EmployeeTable />
               </SortContext.Provider>
             </DirectoryContext.Provider>
-            <button value='dob.age' onClick={(e) => this.orderHandler(e)}>Age</button>
-            <button value='gender' onClick={(e) => this.orderHandler(e)}>Gender</button>
+            <button value='age' onClick={(e) => this.orderHandler(e)}>Age</button>
+            <button value='cell' onClick={(e) => this.orderHandler(e)}>Cell</button>
           </Container>
 
           // <ul>
