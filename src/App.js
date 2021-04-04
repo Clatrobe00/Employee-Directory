@@ -1,10 +1,10 @@
 import './App.css';
-import SearchHandler from './components/SearchHandler';
+import Directory from './components/Directory';
 
 function App() {
   return (
     <>
-      <SearchHandler />
+      <Directory />
     </>  
   );
 }

@@ -4,6 +4,7 @@ import API from './utils/API';
 import EmployeeTable from './EmployeeTable';
 import DirectoryContext from './utils/DirectoryContext';
 import SortContext from './utils/SortContext';
+import FilterContext from './utils/FilterContext';
 
 class SearchHandler extends Component {
   constructor(props) {
@@ -44,18 +45,19 @@ class SearchHandler extends Component {
     render() {
         return (
           <Container>
+            <Form>
+              <Form.Group controlId="formBasicEmail">
+                  <Form.Label>Search for Employee</Form.Label>
+                  <Form.Control type="text" value={this.state.search} onChange={this.handleChange}/>
+                  <Form.Text className="text-muted">
+                  Just type in the first name of the employee you need.
+                  </Form.Text>
+              </Form.Group>
+        
+            </Form>
             <DirectoryContext.Provider value={this.state.employees}>
               <SortContext.Provider value={this.state.sortBy}>
-                <Form>
-                  <Form.Group controlId="formBasicEmail">
-                      <Form.Label>Search for Employee</Form.Label>
-                      <Form.Control type="text" value={this.state.search} onChange={this.handleChange}/>
-                      <Form.Text className="text-muted">
-                      Just type in the first name of the employee you need.
-                      </Form.Text>
-                  </Form.Group>
-            
-                </Form>
+
                 <h1>{this.state.sortBy}</h1>
                 <EmployeeTable />
               </SortContext.Provider>
