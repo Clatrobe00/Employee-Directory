@@ -57,9 +57,10 @@ class SearchHandler extends Component {
             </Form>
             <DirectoryContext.Provider value={this.state.employees}>
               <SortContext.Provider value={this.state.sortBy}>
-
-                <h1>{this.state.sortBy}</h1>
-                <EmployeeTable />
+                <FilterContext.Provider value={this.state.search}>
+                  <h1>{this.state.sortBy}</h1>
+                  <EmployeeTable />
+                </FilterContext.Provider>
               </SortContext.Provider>
             </DirectoryContext.Provider>
             <button value='age' onClick={(e) => this.orderHandler(e)}>Age</button>

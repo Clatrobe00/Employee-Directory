@@ -1,14 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Table } from 'react-bootstrap'
 import DirectoryContext from './utils/DirectoryContext';
 import SortContext from './utils/SortContext'
+import FilterContext from './utils/FilterContext';
 
 const EmployeeTable = () => {
 
-    const employeeData = useContext(DirectoryContext)
-    const sortMethod = useContext(SortContext)
-    console.log('sort method is', sortMethod)
+    const searchFilter = useContext(FilterContext);
+    const employeeData = useContext(DirectoryContext);
+    const sortMethod = useContext(SortContext);
+    console.log('sort method is', sortMethod);
     let sortedEm;
+
+    const filterEmployees = () => {
+        employeeData.filter(employee => {
+            return employee.name.first.toLowerCase().includes(searchFilter.toLowerCase());
+        })
+    }
+
+    useEffect(() => {
+        const filter = filterEmployees()
+        console.log('filtered array is ', filter)
+    })
+
     const mapEmployees = () => {
         switch (sortMethod) {
             case 'age':
@@ -24,7 +38,6 @@ const EmployeeTable = () => {
                 console.log('registered sorted Emps are', sortedEm)    
                 break
             default:
-                console.log('broken')
                 break;
         }
         
