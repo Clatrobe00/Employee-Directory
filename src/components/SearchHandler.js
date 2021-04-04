@@ -1,10 +1,8 @@
 import React, { Component, useState } from 'react';
-import Container from 'react-bootstrap/Container';
+import { Container, Form } from 'react-bootstrap';
 import API from './utils/API';
 import EmployeeTable from './EmployeeTable';
 import DirectoryContext from './utils/DirectoryContext';
-import SearchBar from './SearchBar';
-// import SortButton from './SortButton';
 import SortContext from './utils/SortContext';
 
 class SearchHandler extends Component {
@@ -12,7 +10,8 @@ class SearchHandler extends Component {
     super()
     this.state = {
       employees: [],
-      sortBy: 'cell'
+      sortBy: 'cell',
+      search: 'name',
     }
   }
 
@@ -33,6 +32,11 @@ class SearchHandler extends Component {
       this.setState({ sortBy: e.target.value })
     }
 
+    handleChange = (e) => {
+      this.setState({ search: e.target.value});
+      console.log('target data is ', e.target.value);
+    }
+
     // componentDidUpdate () {
     //   this.getEmployees()
     // }
@@ -42,7 +46,16 @@ class SearchHandler extends Component {
           <Container>
             <DirectoryContext.Provider value={this.state.employees}>
               <SortContext.Provider value={this.state.sortBy}>
-                <SearchBar />
+                <Form>
+                  <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Search for Employee</Form.Label>
+                      <Form.Control type="text" value={this.state.search} onChange={this.handleChange}/>
+                      <Form.Text className="text-muted">
+                      Just type in the first name of the employee you need.
+                      </Form.Text>
+                  </Form.Group>
+            
+                </Form>
                 <h1>{this.state.sortBy}</h1>
                 <EmployeeTable />
               </SortContext.Provider>
