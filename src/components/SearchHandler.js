@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import API from './utils/API';
 import EmployeeTable from './EmployeeTable';
 import DirectoryContext from './utils/DirectoryContext';
+import SearchBar from './SearchBar';
 // import SortButton from './SortButton';
 import SortContext from './utils/SortContext';
 
@@ -41,6 +42,7 @@ class SearchHandler extends Component {
           <Container>
             <DirectoryContext.Provider value={this.state.employees}>
               <SortContext.Provider value={this.state.sortBy}>
+                <SearchBar />
                 <h1>{this.state.sortBy}</h1>
                 <EmployeeTable />
               </SortContext.Provider>
