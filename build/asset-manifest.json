@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Clatrobe00/Employee-Directory/static/css/main.26f9e6b0.chunk.css",
+    "main.js": "/Clatrobe00/Employee-Directory/static/js/main.266a3c36.chunk.js",
+    "main.js.map": "/Clatrobe00/Employee-Directory/static/js/main.266a3c36.chunk.js.map",
+    "runtime-main.js": "/Clatrobe00/Employee-Directory/static/js/runtime-main.dbb4a820.js",
+    "runtime-main.js.map": "/Clatrobe00/Employee-Directory/static/js/runtime-main.dbb4a820.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/Clatrobe00/Employee-Directory/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.32a0e523.chunk.js": "/Clatrobe00/Employee-Directory/static/js/2.32a0e523.chunk.js",
+    "static/js/2.32a0e523.chunk.js.map": "/Clatrobe00/Employee-Directory/static/js/2.32a0e523.chunk.js.map",
+    "index.html": "/Clatrobe00/Employee-Directory/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/Clatrobe00/Employee-Directory/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.26f9e6b0.chunk.css.map": "/Clatrobe00/Employee-Directory/static/css/main.26f9e6b0.chunk.css.map",
+    "static/js/2.32a0e523.chunk.js.LICENSE.txt": "/Clatrobe00/Employee-Directory/static/js/2.32a0e523.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dbb4a820.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.32a0e523.chunk.js",
+    "static/css/main.26f9e6b0.chunk.css",
+    "static/js/main.266a3c36.chunk.js"
+  ]
+}
