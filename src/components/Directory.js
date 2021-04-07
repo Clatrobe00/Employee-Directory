@@ -12,7 +12,7 @@ class SearchHandler extends Component {
     this.state = {
       employees: [],
       sortBy: 'cell',
-      search: 'name',
+      search: '',
     }
   }
 
@@ -59,7 +59,7 @@ class SearchHandler extends Component {
               <SortContext.Provider value={this.state.sortBy}>
                 <FilterContext.Provider value={this.state.search}>
                   <h1>{this.state.sortBy}</h1>
-                  <EmployeeTable />
+                  <EmployeeTable search={this.state.search}/>
                 </FilterContext.Provider>
               </SortContext.Provider>
             </DirectoryContext.Provider>

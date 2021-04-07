@@ -4,24 +4,13 @@ import DirectoryContext from './utils/DirectoryContext';
 import SortContext from './utils/SortContext'
 import FilterContext from './utils/FilterContext';
 
-const EmployeeTable = () => {
+const EmployeeTable = (props) => {
 
     const searchFilter = useContext(FilterContext);
     const employeeData = useContext(DirectoryContext);
     const sortMethod = useContext(SortContext);
     console.log('sort method is', sortMethod);
     let sortedEm;
-
-    const filterEmployees = () => {
-        employeeData.filter(employee => {
-            return employee.name.first.toLowerCase().includes(searchFilter.toLowerCase());
-        })
-    }
-
-    useEffect(() => {
-        const filter = filterEmployees()
-        console.log('filtered array is ', filter)
-    })
 
     const mapEmployees = () => {
         switch (sortMethod) {
@@ -39,7 +28,7 @@ const EmployeeTable = () => {
                 break;
         }
         
-        const emTab = employeeData.map(employee => {
+        const emTab = employeeData.filter(e => (e.name.first + " " + e.name.last).toLowerCase().includes(props.search.toLowerCase())).map(employee => {
             return (
                 <tr key={employeeData.indexOf(employee)}>
                 <td>{employee.name.title}</td>
